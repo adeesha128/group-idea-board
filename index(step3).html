@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Student Toolkit Dashboard</title>
+
+<style>
+
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#fafafa;
+  color:#333;
+  transition:0.4s;
+}
+
+/* DARK MODE */
+body.dark{
+  background:#1e1e1e;
+  color:#eee;
+}
+
+/* NAVBAR */
+.navbar{
+  background:#800000;
+  color:white;
+  padding:15px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  transition:0.4s;
+}
+
+/* DARK NAVBAR */
+body.dark .navbar{
+  background:#2b2b2b;
+}
+
+/* LOGO */
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo img{
+  height:40px;
+}
+
+/* MENU */
+.menu a{
+  color:#FFD700;
+  margin-left:20px;
+  cursor:pointer;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.menu a:hover{
+  color:white;
+}
+
+/* DARK MODE SWITCH */
+.switch{
+  margin-left:20px;
+  cursor:pointer;
+  font-size:14px;
+}
+
+/* LAYOUT */
+.container{
+  display:flex;
+}
+
+/* SIDEBAR */
+.sidebar{
+  width:250px;
+  background:#8B0000;
+  color:white;
+  padding:20px;
+  min-height:100vh;
+  transition:0.4s;
+}
+
+/* DARK SIDEBAR */
+body.dark .sidebar{
+  background:#2b2b2b;
+}
+
+/* EVENTS */
+.event{
+  background:#a52a2a;
+  padding:12px;
+  margin-top:10px;
+  border-radius:5px;
+  transition:0.3s;
+}
+
+/* SIDEBAR HOVER EFFECT */
+.event:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 10px gold;
+  background:#b22222;
+}
+
+/* MAIN */
+.main{
+  flex:1;
+  padding:30px;
+}
+
+/* CARD */
+.card{
+  background:white;
+  padding:20px;
+  border-radius:8px;
+  margin-bottom:20px;
+  box-shadow:0 3px 8px rgba(0,0,0,0.1);
+  animation:fadeIn 1s ease;
+  transition:0.4s;
+}
+
+/* DARK CARD */
+body.dark .card{
+  background:#2b2b2b;
+}
+
+/* INPUT */
+select{
+  padding:8px;
+  margin:5px;
+}
+
+/* BUTTON */
+button{
+  padding:10px 15px;
+  border:none;
+  background:#FFD700;
+  color:#800000;
+  border-radius:5px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+button:hover{
+  background:#e6c200;
+}
+
+/* TIMER */
+#timerDisplay{
+  font-size:40px;
+  margin:15px 0;
+}
+
+/* FADE ANIMATION */
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+
+  <div class="logo">
+    <img src="https://avatars.githubusercontent.com/u/6937151?s=200&v=4" alt="UCSC Logo">
+    <h2>Student Toolkit</h2>
+  </div>
+
+  <div class="menu">
+    <a onclick="showSection('gpa')">GPA Calculator</a>
+    <a onclick="showSection('timer')">Pomodoro Timer</a>
+    <span class="switch" onclick="toggleDark()">🌙 Dark Mode</span>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <h3>Upcoming Events</h3>
+    <div class="event">CS Orientation – March 20</div>
+    <div class="event">Programming Contest – March 25</div>
+    <div class="event">AI Workshop – April 2</div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- GPA -->
+    <div class="card" id="gpaSection">
+      <h2>GPA Calculator</h2>
+      <table>
+        <tr>
+          <th>Course</th>
+          <th>Credits</th>
+          <th>Grade</th>
+        </tr>
+        <tr>
+          <td>
+            <select>
+              <option>Programming</option>
+              <option>Mathematics</option>
+              <option>Database</option>
+              <option>Statistics</option>
+            </select>
+          </td>
+          <td>
+            <select class="credit">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </td>
+          <td>
+            <select class="grade">
+              <option value="4">A</option>
+              <option value="3.7">A-</option>
+              <option value="3.3">B+</option>
+              <option value="3">B</option>
+              <option value="2.7">B-</option>
+              <option value="2">C</option>
+              <option value="1">D</option>
+              <option value="0">F</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <select>
+              <option>Programming</option>
+              <option>Mathematics</option>
+              <option>Database</option>
+              <option>Statistics</option>
+            </select>
+          </td>
+          <td>
+            <select class="credit">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </td>
+          <td>
+            <select class="grade">
+              <option value="4">A</option>
+              <option value="3.7">A-</option>
+              <option value="3.3">B+</option>
+              <option value="3">B</option>
+              <option value="2.7">B-</option>
+              <option value="2">C</option>
+              <option value="1">D</option>
+              <option value="0">F</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <select>
+              <option>Programming</option>
+              <option>Mathematics</option>
+              <option>Database</option>
+              <option>Statistics</option>
+            </select>
+          </td>
+          <td>
+            <select class="credit">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </td>
+          <td>
+            <select class="grade">
+              <option value="4">A</option>
+              <option value="3.7">A-</option>
+              <option value="3.3">B+</option>
+              <option value="3">B</option>
+              <option value="2.7">B-</option>
+              <option value="2">C</option>
+              <option value="1">D</option>
+              <option value="0">F</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+
+      <br>
+      <button onclick="calculateGPA()">Calculate GPA</button>
+      <h3 id="gpaResult"></h3>
+
+    </div>
+
+    <!-- TIMER -->
+    <div class="card" id="timerSection" style="display:none">
+      <h2>Pomodoro Study Timer</h2>
+      <div id="timerDisplay">25:00</div>
+      <button onclick="startTimer()">Start</button>
+      <button onclick="resetTimer()">Reset</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+
+/* DARK MODE */
+function toggleDark(){
+  document.body.classList.toggle("dark");
+}
+
+/* NAVIGATION */
+function showSection(section){
+  document.getElementById("gpaSection").style.display="none";
+  document.getElementById("timerSection").style.display="none";
+
+  if(section==="gpa"){
+    document.getElementById("gpaSection").style.display="block";
+  }
+  if(section==="timer"){
+    document.getElementById("timerSection").style.display="block";
+  }
+}
+
+/* GPA */
+function calculateGPA(){
+  let credits=document.querySelectorAll(".credit");
+  let grades=document.querySelectorAll(".grade");
+  let totalCredits=0;
+  let totalPoints=0;
+
+  for(let i=0;i<credits.length;i++){
+    let c=parseFloat(credits[i].value);
+    let g=parseFloat(grades[i].value);
+    totalCredits+=c;
+    totalPoints+=c*g;
+  }
+
+  let gpa=totalPoints/totalCredits;
+
+  document.getElementById("gpaResult").innerText=
+  "Overall GPA: "+gpa.toFixed(2);
+}
+
+/* TIMER */
+let time=1500;
+let timer;
+
+function updateDisplay(){
+  let minutes=Math.floor(time/60);
+  let seconds=time%60;
+
+  document.getElementById("timerDisplay").innerText=
+    String(minutes).padStart(2,'0')+":"+String(seconds).padStart(2,'0');
+}
+
+function startTimer(){
+  if(timer) return;
+
+  timer=setInterval(function(){
+    if(time>0){
+      time--;
+      updateDisplay();
+    } else {
+      clearInterval(timer);
+      timer=null;
+      let audio=new Audio("https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg");
+      audio.play();
+      alert("Pomodoro session finished! Take a break.");
+    }
+  },1000);
+}
+
+function resetTimer(){
+  clearInterval(timer);
+  timer=null;
+  time=1500;
+  updateDisplay();
+}
+
+</script>
+
+</body>
+</html>
