@@ -36,6 +36,35 @@ select{padding:6px;}
 .progress-bar{height:100%;width:0%;background:var(--gold);transition:width 1s linear;}
 table{width:100%;border-collapse:collapse;margin-top:15px;}
 th,td{border:1px solid #ccc;padding:10px;text-align:center;}
+
+/* ── Responsive Design ── */
+@media(max-width:768px){
+  .navbar{flex-direction:column;align-items:flex-start;gap:10px;padding:12px 16px;}
+  .nav-menu{display:flex;flex-wrap:wrap;gap:6px;}
+  .nav-menu a{margin:0;font-size:14px;}
+  .switch{font-size:14px;margin-left:0;}
+  .container{flex-direction:column;}
+  .sidebar{width:100%;box-sizing:border-box;padding:12px 16px;}
+  .sidebar-events{display:flex;flex-wrap:wrap;gap:8px;}
+  .event{margin:4px 0;flex:1 1 calc(50% - 8px);min-width:140px;}
+  .main{padding:15px;}
+  .section{padding:16px;}
+  #timerDisplay{font-size:28px;}
+  .idea-input-row{flex-direction:column!important;}
+  .idea-input-row select,
+  .idea-input-row textarea,
+  .idea-input-row button{width:100%!important;box-sizing:border-box;margin-left:0!important;}
+}
+@media(max-width:480px){
+  .nav-left h2{font-size:16px;}
+  .nav-left img{height:30px;}
+  .nav-menu a{font-size:13px;}
+  .event{flex:1 1 100%;}
+  #timerDisplay{font-size:22px;}
+  button{width:100%;box-sizing:border-box;}
+  select{width:100%;box-sizing:border-box;margin-bottom:6px;}
+  .section{padding:12px;}
+}
 </style>
 </head>
 <body>
@@ -51,18 +80,24 @@ th,td{border:1px solid #ccc;padding:10px;text-align:center;}
 <div class="container">
 <div class="sidebar">
 <h3>Upcoming Events</h3>
-<div class="event">CS Orientation – March 20</div>
+<div class="sidebar-events"><div class="event">CS Orientation – March 20</div>
 <div class="event">Programming Contest – March 25</div>
 <div class="event">AI Workshop – April 2</div>
-<div class="event">Database Assignment – Friday</div>
+<div class="event">Database Assignment – Friday</div></div>
 </div>
 <div class="main">
 
 <div class="section" id="ideaSection">
 <h2>Group Idea Board</h2>
-<select id="name-select"><option value="">Choose Name...</option><option>Nimal</option><option>Sara</option><option>Alex</option></select>
-<input type="text" id="idea-text" placeholder="Enter your idea..." style="width:60%;padding:6px;margin-left:10px;">
-<button onclick="addIdea()">Add Idea</button>
+<div class="idea-input-row" style="display:flex;flex-wrap:wrap;gap:10px;align-items:flex-start;margin-bottom:10px;">
+  <select id="name-select"><option value="">Choose Name...</option><option>Nimal</option><option>Sara</option><option>Alex</option></select>
+  <div style="display:flex;flex-direction:column;flex:1;min-width:200px;">
+    <textarea id="idea-text" placeholder="Enter your idea... (max 250 characters)" oninput="sanitizeInput()" style="width:100%;padding:8px;border-radius:6px;border:1px solid #ccc;resize:vertical;min-height:80px;font-family:Arial,sans-serif;font-size:14px;box-sizing:border-box;"></textarea>
+    <div id="char-count" style="font-size:12px;color:#888;margin-top:4px;text-align:right;">0 / 250</div>
+  </div>
+  <button onclick="addIdea()" style="align-self:flex-start;">Add Idea</button>
+</div>
+<div id="idea-error" style="display:none;margin-top:10px;padding:10px 15px;background:#ffe0e0;border-left:4px solid #cc0000;border-radius:6px;color:#cc0000;font-weight:bold;"></div>
 <div id="ideas-grid" style="margin-top:15px;"></div>
 </div>
 
@@ -86,8 +121,52 @@ th,td{border:1px solid #ccc;padding:10px;text-align:center;}
 function toggleDark(){document.body.classList.toggle('dark');}
 function showSection(section){document.getElementById('ideaSection').style.display='none';document.getElementById('gpaSection').style.display='none';document.getElementById('timerSection').style.display='none';if(section==='idea') document.getElementById('ideaSection').style.display='block';if(section==='gpa') document.getElementById('gpaSection').style.display='block';if(section==='timer') document.getElementById('timerSection').style.display='block';}
 let ideas=[];let nextId=1;
-function renderIdeas(){const grid=document.getElementById('ideas-grid');grid.innerHTML='';ideas.forEach((i,index)=>{grid.innerHTML+=`<div style="border:1px solid #ccc;padding:10px;margin:6px;border-radius:6px;">${index+1}. <b>${i.author}</b>: ${i.text}</div>`;});}
-function addIdea(){let name=document.getElementById('name-select').value;let text=document.getElementById('idea-text').value;if(!name||!text){alert('Enter name and idea');return;}ideas.push({id:nextId++,author:name,text:text});document.getElementById('idea-text').value='';renderIdeas();}
+function renderIdeas(){
+  const grid=document.getElementById('ideas-grid');
+  grid.innerHTML='';
+  ideas.forEach((i,index)=>{
+    grid.innerHTML+=`
+      <div style="border:1px solid #ddd;padding:15px 18px;margin:10px 0;border-radius:8px;background:#fafafa;box-shadow:0 2px 6px rgba(0,0,0,0.06);">
+        <div style="font-weight:bold;color:#7a0019;margin-bottom:6px;">💡 Idea #${index+1} — ${i.author}</div>
+        <p style="margin:0;line-height:1.6;font-size:15px;color:#333;">${i.text}</p>
+      </div>`;
+  });
+}
+function sanitizeInput(){
+  const field=document.getElementById('idea-text');
+  const clean=field.value.replace(/[^a-zA-Z0-9 .,!?]/g,'');
+  if(field.value!==clean){
+    field.value=clean;
+    const errorBox=document.getElementById('idea-error');
+    errorBox.textContent='⚠️ Special characters are not allowed!';
+    errorBox.style.display='block';
+    setTimeout(()=>{errorBox.style.display='none';},2000);
+  }
+  updateCharCount();
+}
+function updateCharCount(){
+  const text=document.getElementById('idea-text').value;
+  const count=text.length;
+  const counter=document.getElementById('char-count');
+  counter.textContent=count+' / 250';
+  counter.style.color=count>250?'#cc0000':count>200?'#e67e00':'#888';
+}
+function addIdea(){
+  const errorBox=document.getElementById('idea-error');
+  errorBox.style.display='none';
+  let name=document.getElementById('name-select').value;
+  let text=document.getElementById('idea-text').value.trim();
+  if(!name||!text){errorBox.textContent='⚠️ Please choose a name and enter an idea.';errorBox.style.display='block';setTimeout(()=>{errorBox.style.display='none';},3000);return;}
+  const specialCharPattern=/[^a-zA-Z0-9 .,!?]/;
+  if(specialCharPattern.test(text)){errorBox.textContent='⚠️ Special characters are not allowed in your idea!';errorBox.style.display='block';setTimeout(()=>{errorBox.style.display='none';},3000);return;}
+  if(text.length>250){errorBox.textContent='⚠️ Your idea is too long! Please keep it under 250 characters.';errorBox.style.display='block';setTimeout(()=>{errorBox.style.display='none';},3000);return;}
+  const duplicate=ideas.some(i=>i.author.toLowerCase()===name.toLowerCase()&&i.text.toLowerCase()===text.toLowerCase());
+  if(duplicate){errorBox.textContent="⚠️ You've already submitted this idea!";errorBox.style.display='block';setTimeout(()=>{errorBox.style.display='none';},3000);return;}
+  ideas.push({id:nextId++,author:name,text:text});
+  document.getElementById('idea-text').value='';
+  updateCharCount();
+  renderIdeas();
+}
 
 /* GPA Multiple Courses */
 const subjects=['Programming','Mathematics','Database','Networking','AI Fundamentals','Statistics','Operating Systems','Web Development'];
