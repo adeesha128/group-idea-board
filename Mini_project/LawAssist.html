@@ -146,3 +146,160 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(-
 }
 .marquee-item::after{content:'✦';opacity:.4;font-size:8px}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ─── OVERSIZED TEXT SECTION (nymo style) ─── */
+/* ─── OVERSIZED + PHONE SECTION (nymo style) ─── */
+.oversized-section{
+  background:#eeecea;
+  position:relative;
+  overflow:hidden;
+  padding-top:80px;
+  padding-bottom:90px;
+}
+
+/* The giant text row — phone floats on top of it */
+.oversized-phone-wrap{
+  position:relative;
+  width:100%;
+  height:560px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+/* Full-width oversized text absolutely behind phone */
+.oversized-bg-text{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  pointer-events:none;
+  white-space:nowrap;
+  font-size:clamp(45px,14vw,120px);
+  font-weight:800;
+  color:#0a0c18;
+  letter-spacing:-6px;
+  line-height:1;
+  z-index:1;
+}
+.oversized-bg-text em{
+  font-style:italic;
+  color:#8b5cf6;
+  margin-left:0.2em;
+}
+
+/* Phone mockup floats in centre above the text */
+.phone-mockup{
+  position:relative;
+  z-index:2;
+  width:230px;
+  flex-shrink:0;
+  background:#ffffff;
+  border-radius:40px;
+  border:8px solid #111;
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,.2),
+    0 50px 100px rgba(0,0,0,.28),
+    0 20px 40px rgba(0,0,0,.15);
+  overflow:hidden;
+}
+.phone-notch{
+  width:86px;height:24px;
+  background:#111;
+  border-radius:0 0 16px 16px;
+  margin:0 auto;
+}
+.phone-screen{
+  background:linear-gradient(160deg,#1a0f3c 0%,#2d1b69 45%,#4c1d95 100%);
+  height:440px;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:24px 18px 16px;
+  gap:12px;
+}
+/* LawAssist SVG-style logo */
+.phone-logo-wrap{
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+}
+.phone-logo-icon{
+  width:76px;height:76px;
+  background:linear-gradient(135deg,#6d28d9 0%,#8b5cf6 50%,#ec4899 100%);
+  border-radius:22px;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 12px 32px rgba(139,92,246,.55),0 0 0 1px rgba(255,255,255,.1);
+  position:relative;overflow:hidden;
+}
+.phone-logo-icon::before{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.25) 0%,transparent 60%);
+}
+.phone-logo-letter{
+  font-size:36px;font-weight:900;
+  color:#fff;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  position:relative;z-index:1;
+  letter-spacing:-2px;
+}
+.phone-app-name{
+  font-size:18px;font-weight:800;color:#fff;
+  letter-spacing:-.4px;font-family:'Plus Jakarta Sans',sans-serif;
+  text-align:center;
+}
+.phone-app-name span{
+  background:linear-gradient(135deg,#c4b5fd,#f9a8d4);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.phone-sub{
+  font-size:10.5px;color:rgba(255,255,255,.45);
+  text-align:center;line-height:1.4;max-width:150px;
+}
+.phone-divider{width:80%;height:1px;background:rgba(255,255,255,.1);margin:2px 0}
+.phone-chips{display:flex;flex-direction:column;gap:6px;width:100%}
+.phone-chip-row{
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:10px;padding:8px 12px;
+  display:flex;align-items:center;gap:8px;
+  font-size:10.5px;color:rgba(255,255,255,.75);font-weight:600;
+  font-family:'Plus Jakarta Sans',sans-serif;
+}
+.pcdot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.phone-bar{
+  width:90px;height:4px;background:rgba(255,255,255,.2);
+  border-radius:2px;margin:4px auto 0;
+}
+
+/* Content below phone */
+.oversized-sub{
+  max-width:580px;margin:44px auto 0;
+  text-align:center;
+  font-size:16px;color:#3a3a50;line-height:1.7;
+  padding:0 24px;font-weight:400;
+}
+.oversized-cta-row{
+  display:flex;gap:14px;justify-content:center;
+  margin-top:32px;flex-wrap:wrap;
+}
+.btn-purple{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--purple);color:#fff;
+  padding:14px 28px;border-radius:100px;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:14px;font-weight:700;
+  border:none;cursor:pointer;transition:all .25s;
+  text-decoration:none;letter-spacing:.2px;
+}
+.btn-purple:hover{background:#7c3aed;transform:translateY(-2px);box-shadow:0 12px 32px rgba(139,92,246,.35)}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:8px;
+  background:transparent;color:#0a0c18;
+  padding:14px 28px;border-radius:100px;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:14px;font-weight:600;
+  border:1.5px solid rgba(10,12,24,0.2);cursor:pointer;transition:all .25s;
+  text-decoration:none;
+}
+.btn-ghost:hover{border-color:#8b5cf6;color:#8b5cf6}
