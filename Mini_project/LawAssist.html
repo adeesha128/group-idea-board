@@ -548,6 +548,38 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(-
 .emrg-title{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:6px}
 .emrg-text{font-size:12px;color:var(--muted);line-height:1.55}
 
+/* ─── LEGAL AID COMMISSION BANNER ─── */
+.lac-banner{
+  max-width:1100px;margin:40px auto 0;
+  background:rgba(244,63,94,.05);
+  border:1px solid rgba(244,63,94,.2);
+  border-radius:16px;padding:28px 32px;
+  display:grid;grid-template-columns:auto 1fr auto;
+  gap:24px;align-items:center;
+}
+.lac-pulse{
+  width:48px;height:48px;border-radius:50%;
+  background:rgba(244,63,94,.12);
+  border:1px solid rgba(244,63,94,.3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;flex-shrink:0;
+  animation:pulse 2s infinite;
+}
+.lac-text h4{font-size:15px;font-weight:700;color:var(--txt);margin-bottom:4px}
+.lac-text p{font-size:12px;color:var(--muted);line-height:1.5;max-width:500px}
+.lac-contacts{display:flex;flex-direction:column;gap:8px;flex-shrink:0}
+.lac-number{
+  display:flex;align-items:center;gap:10px;
+  background:rgba(244,63,94,.08);border:1px solid rgba(244,63,94,.18);
+  border-radius:10px;padding:9px 16px;
+  text-decoration:none;transition:background .2s;
+}
+.lac-number:hover{background:rgba(244,63,94,.16)}
+.lac-num-icon{font-size:14px;flex-shrink:0}
+.lac-num-val{font-size:13px;font-weight:700;color:var(--txt)}
+.lac-num-lbl{font-size:10px;color:var(--muted);font-weight:500}
+@media(max-width:700px){.lac-banner{grid-template-columns:1fr;}.lac-contacts{flex-direction:row;flex-wrap:wrap;}}
+
 /* ─── LAWYERS ─── */
 #lawyers{background:var(--bg3);padding:100px 24px}
 .lawyers-wrap{max-width:1000px;margin:0 auto;border-radius:16px;overflow:hidden;border:1px solid var(--bord2);box-shadow:0 24px 60px rgba(0,0,0,.4)}
@@ -611,6 +643,48 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(-
 .m-tip{background:rgba(139,92,246,.07);border:1px solid rgba(139,92,246,.2);border-left:3px solid var(--purple);border-radius:8px;padding:13px 16px;margin:14px 0;font-size:13px;color:rgba(196,181,253,.85);line-height:1.6}
 .m-warn{background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.2);border-left:3px solid var(--red);border-radius:8px;padding:13px 16px;margin:14px 0;font-size:13px;color:rgba(252,165,165,.9);line-height:1.6}
 .modal-foot{padding:16px 32px 22px;border-top:1px solid var(--bord);font-size:11px;color:var(--muted2);background:var(--bg3);line-height:1.5}
+
+/* ─── LEGAL RESOURCES LIBRARY ─── */
+#resources{background:var(--bg2);padding:100px 24px;border-top:1px solid var(--bord)}
+.resources-inner{max-width:1100px;margin:0 auto}
+.res-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px;justify-content:center}
+.res-tab{
+  padding:9px 20px;border-radius:100px;
+  font-size:12px;font-weight:700;
+  border:1px solid var(--bord2);background:var(--card);
+  color:var(--muted);cursor:pointer;transition:all .2s;
+  font-family:'Plus Jakarta Sans',sans-serif;
+}
+.res-tab:hover{border-color:rgba(139,92,246,.4);color:var(--purple2)}
+.res-tab.active{background:var(--purple);border-color:var(--purple);color:#fff}
+.res-panel{display:none;animation:fadeUp .3s ease}
+.res-panel.active{display:block}
+.res-group{margin-bottom:28px}
+.res-group-title{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted2);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--bord)}
+.res-year-groups{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
+.res-year-box{
+  background:var(--card);border:1px solid var(--bord);border-radius:10px;
+  padding:14px 16px;transition:all .2s;
+}
+.res-year-box:hover{border-color:rgba(139,92,246,.35);background:var(--card2)}
+.res-year-box-title{font-size:12px;font-weight:700;color:var(--purple2);margin-bottom:8px}
+.res-year-items{display:flex;flex-wrap:wrap;gap:4px}
+.res-year-item{
+  font-size:10px;padding:3px 8px;background:rgba(255,255,255,.05);
+  border-radius:6px;color:var(--muted);border:1px solid var(--bord);
+  transition:all .2s;cursor:pointer;
+}
+.res-year-item:hover{background:rgba(139,92,246,.15);border-color:rgba(139,92,246,.3);color:var(--lilac)}
+.res-enact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.res-enact-card{
+  background:var(--card);border:1px solid var(--bord);border-radius:12px;
+  padding:18px 20px;transition:all .2s;cursor:pointer;
+  display:flex;flex-direction:column;gap:6px;
+}
+.res-enact-card:hover{border-color:rgba(139,92,246,.35);background:var(--card2);transform:translateY(-2px)}
+.res-enact-icon{font-size:20px}
+.res-enact-name{font-size:13px;font-weight:700;color:var(--txt);line-height:1.3}
+.res-enact-sub{font-size:11px;color:var(--muted)}
 
 /* ─── FOOTER ─── */
 footer{background:var(--bg);padding:56px 60px 36px;border-top:1px solid var(--bord)}
@@ -785,6 +859,7 @@ footer{background:var(--bg);padding:56px 60px 36px;border-top:1px solid var(--bo
     <li><a href="#categories" style="font-size:12px;font-weight:500;color:rgba(255,255,255,.5);text-decoration:none;padding:7px 13px;border-radius:100px;transition:all .2s;display:block" onmouseover="this.style.color='#f0f2ff';this.style.background='rgba(255,255,255,.08)'" onmouseout="this.style.color='rgba(255,255,255,.5)';this.style.background='transparent'">Law Areas</a></li>
     <li><a href="#lawyers" style="font-size:12px;font-weight:500;color:rgba(255,255,255,.5);text-decoration:none;padding:7px 13px;border-radius:100px;transition:all .2s;display:block" onmouseover="this.style.color='#f0f2ff';this.style.background='rgba(255,255,255,.08)'" onmouseout="this.style.color='rgba(255,255,255,.5)';this.style.background='transparent'">Find Lawyer</a></li>
     <li><a href="#guides" style="font-size:12px;font-weight:500;color:rgba(255,255,255,.5);text-decoration:none;padding:7px 13px;border-radius:100px;transition:all .2s;display:block" onmouseover="this.style.color='#f0f2ff';this.style.background='rgba(255,255,255,.08)'" onmouseout="this.style.color='rgba(255,255,255,.5)';this.style.background='transparent'">Guides</a></li>
+    <li><a href="#resources" style="font-size:12px;font-weight:500;color:rgba(255,255,255,.5);text-decoration:none;padding:7px 13px;border-radius:100px;transition:all .2s;display:block" onmouseover="this.style.color='#f0f2ff';this.style.background='rgba(255,255,255,.08)'" onmouseout="this.style.color='rgba(255,255,255,.5)';this.style.background='transparent'">Resources</a></li>
   </ul>
   <a href="#emergency" style="background:linear-gradient(135deg,#8b5cf6,#ec4899);color:#fff;padding:9px 20px;border-radius:100px;font-size:12px;font-weight:700;text-decoration:none;transition:all .2s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">Emergency 🚨</a>
 </nav>
@@ -1034,6 +1109,33 @@ footer{background:var(--bg);padding:56px 60px 36px;border-top:1px solid var(--bo
       <div class="emrg-card"><div class="emrg-ico">🔐</div><div class="emrg-title">Cybercrime / Fraud</div><div class="emrg-text">Report to Sri Lanka CERT. Contact your bank immediately. A cyber law attorney can advise on civil recovery options.</div></div>
     </div>
   </div>
+
+  <!-- Legal Aid Commission contact block -->
+  <div class="lac-banner">
+    <div class="lac-pulse">⚖️</div>
+    <div class="lac-text">
+      <h4>Need Free Legal Help? Contact the Legal Aid Commission of Sri Lanka</h4>
+      <p>The LAC provides free legal advice and court representation to low-income individuals (monthly income ≤ Rs.&nbsp;15,000). 77 centres island-wide. Women seeking maintenance are assisted regardless of income. — 129 Hulftsdorp St, Colombo 12.</p>
+    </div>
+    <div class="lac-contacts">
+      <a href="tel:+94115335329" class="lac-number">
+        <span class="lac-num-icon">📞</span>
+        <div><div class="lac-num-val">+94 115 335 329</div><div class="lac-num-lbl">Legal Aid Commission</div></div>
+      </a>
+      <a href="tel:+94115335281" class="lac-number">
+        <span class="lac-num-icon">📞</span>
+        <div><div class="lac-num-val">+94 115 335 281</div><div class="lac-num-lbl">Legal Aid Commission</div></div>
+      </a>
+      <a href="tel:+94112433618" class="lac-number">
+        <span class="lac-num-icon">📞</span>
+        <div><div class="lac-num-val">+94 112 433 618</div><div class="lac-num-lbl">Legal Aid Commission</div></div>
+      </a>
+      <a href="mailto:legalaid@sltnet.lk" class="lac-number">
+        <span class="lac-num-icon">✉️</span>
+        <div><div class="lac-num-val">legalaid@sltnet.lk</div><div class="lac-num-lbl">Email</div></div>
+      </a>
+    </div>
+  </div>
 </section>
 
 <!-- ─── LAWYERS ─── -->
@@ -1136,6 +1238,168 @@ footer{background:var(--bg);padding:56px 60px 36px;border-top:1px solid var(--bo
   </div>
 </section>
 
+<!-- ─── LEGAL RESOURCES LIBRARY ─── -->
+<section id="resources">
+  <div class="resources-inner">
+    <div class="section-center fade-up">
+      <div class="section-eyebrow">LankaLAW</div>
+      <h2 class="section-title">Legal Resources Library</h2>
+      <p class="section-sub">Browse Acts, Law Reports, Judgements, Constitutions and more — sourced from the official eLaw Library.</p>
+    </div>
+
+    <!-- Tab buttons -->
+    <div class="res-tabs">
+      <button class="res-tab active" onclick="showResTab('acts',this)">Acts &amp; Amendments</button>
+      <button class="res-tab" onclick="showResTab('slr',this)">SL Law Reports</button>
+      <button class="res-tab" onclick="showResTab('nlr',this)">New Law Reports</button>
+      <button class="res-tab" onclick="showResTab('legislation',this)">Legislation</button>
+      <button class="res-tab" onclick="showResTab('courts',this)">Court Judgements</button>
+      <button class="res-tab" onclick="showResTab('other',this)">Other Resources</button>
+    </div>
+
+    <!-- PANEL: Acts & Amendments -->
+    <div class="res-panel active" id="res-acts">
+      <div class="res-year-groups">
+        <div class="res-year-box"><div class="res-year-box-title">1956 – 1965</div><div class="res-year-items"><span class="res-year-item">1956</span><span class="res-year-item">1957</span><span class="res-year-item">1958</span><span class="res-year-item">1959</span><span class="res-year-item">1960</span><span class="res-year-item">1961</span><span class="res-year-item">1962</span><span class="res-year-item">1963</span><span class="res-year-item">1964</span><span class="res-year-item">1965</span></div></div>
+        <div class="res-year-box"><div class="res-year-box-title">1966 – 1975</div><div class="res-year-items"><span class="res-year-item">1966</span><span class="res-year-item">1967</span><span class="res-year-item">1968</span><span class="res-year-item">1969</span><span class="res-year-item">1970</span><span class="res-year-item">1971</span><span class="res-year-item">1972</span><span class="res-year-item">1973</span><span class="res-year-item">1974</span><span class="res-year-item">1975</span></div></div>
+        <div class="res-year-box"><div class="res-year-box-title">1976 – 1985</div><div class="res-year-items"><span class="res-year-item">1976</span><span class="res-year-item">1977</span><span class="res-year-item">1978</span><span class="res-year-item">1979</span><span class="res-year-item">1980</span><span class="res-year-item">1981</span><span class="res-year-item">1982</span><span class="res-year-item">1983</span><span class="res-year-item">1984</span><span class="res-year-item">1985</span></div></div>
+        <div class="res-year-box"><div class="res-year-box-title">1986 – 1995</div><div class="res-year-items"><span class="res-year-item">1986</span><span class="res-year-item">1987</span><span class="res-year-item">1988</span><span class="res-year-item">1989</span><span class="res-year-item">1990</span><span class="res-year-item">1991</span><span class="res-year-item">1992</span><span class="res-year-item">1993</span><span class="res-year-item">1994</span><span class="res-year-item">1995</span></div></div>
+        <div class="res-year-box"><div class="res-year-box-title">1996 – 2005</div><div class="res-year-items"><span class="res-year-item">1996</span><span class="res-year-item">1997</span><span class="res-year-item">1998</span><span class="res-year-item">1999</span><span class="res-year-item">2000</span><span class="res-year-item">2001</span><span class="res-year-item">2002</span><span class="res-year-item">2003</span><span class="res-year-item">2004</span><span class="res-year-item">2005</span></div></div>
+        <div class="res-year-box"><div class="res-year-box-title">2006 – 2015</div><div class="res-year-items"><span class="res-year-item">2006</span><span class="res-year-item">2007</span><span class="res-year-item">2008</span><span class="res-year-item">2009</span><span class="res-year-item">2010</span><span class="res-year-item">2011</span><span class="res-year-item">2012</span><span class="res-year-item">2013</span><span class="res-year-item">2014</span><span class="res-year-item">2015</span></div></div>
+        <div class="res-year-box"><div class="res-year-box-title">2016 – 2025</div><div class="res-year-items"><span class="res-year-item">2016</span><span class="res-year-item">2017</span><span class="res-year-item">2018</span><span class="res-year-item">2019</span><span class="res-year-item">2020</span><span class="res-year-item">2021</span><span class="res-year-item">2022</span><span class="res-year-item">2023</span><span class="res-year-item">2024</span><span class="res-year-item">2025</span></div></div>
+      </div>
+      <div class="res-group" style="margin-top:20px">
+        <div class="res-group-title">Browse by Format</div>
+        <div class="res-enact-grid">
+          <div class="res-enact-card"><div class="res-enact-icon">🔡</div><div class="res-enact-name">Alphabetical Order</div><div class="res-enact-sub">Browse all Acts alphabetically</div></div>
+          <div class="res-enact-card"><div class="res-enact-icon">📋</div><div class="res-enact-name">Consolidated 2024</div><div class="res-enact-sub">Legislative Enactments</div></div>
+          <div class="res-enact-card"><div class="res-enact-icon">📋</div><div class="res-enact-name">Consolidated 2006</div><div class="res-enact-sub">Legislative Enactments</div></div>
+          <div class="res-enact-card"><div class="res-enact-icon">📖</div><div class="res-enact-name">1980 Revised Version</div><div class="res-enact-sub">Legislative Enactments</div></div>
+          <div class="res-enact-card"><div class="res-enact-icon">📖</div><div class="res-enact-name">1956 Revised Version</div><div class="res-enact-sub">Legislative Enactments</div></div>
+          <div class="res-enact-card"><div class="res-enact-icon">🏛️</div><div class="res-enact-name">Ceylon 1656 – 1956</div><div class="res-enact-sub">Ceylon Legislative Enactments</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL: Sri Lanka Law Reports -->
+    <div class="res-panel" id="res-slr">
+      <div class="res-year-groups">
+        <div class="res-year-box"><div class="res-year-box-title">1978 – 1982</div><div class="res-year-items"><span class="res-year-item">1978/79</span><span class="res-year-item">1978/79/80</span><span class="res-year-item">1980</span><span class="res-year-item">1981</span><span class="res-year-item">1982</span></div></div>
+        <div class="res-year-box"><div class="res-year-box-title">1983 – 1987</div><div class="res-year-items"><span class="res-year-item">1983</span><span class="res-year-item">1984</span><span class="res-year-item">1985</span><span class="res-year-item">1986</span><span class="res-year-item">1987</span></div></div>
+        <div class="res-year-box"><div class="res-year-box-title">1988 – 1992</div><div class="res-year-items"><span class="res-year-item">1988</span><span class="res-year-item">1989</span><span class="res-year-item">1990</span><span class="res-year-item">1991</span><span class="res-year-item">1992</span></div></div>
+        <div class="res-year-box"><div class="res-year-box-title">1993 – 1997</div><div class="res-year-items"><span class="res-year-item">1993</span><span class="res-year-item">1994</span><span class="res-year-item">1995</span><span class="res-year-item">1996</span><span class="res-year-item">1997</span></div></div>
+        <div class="res-year-box"><div class="res-year-box-title">1998 – 2002</div><div class="res-year-items"><span class="res-year-item">1998</span><span class="res-year-item">1999</span><span class="res-year-item">2000</span><span class="res-year-item">2001</span><span class="res-year-item">2002</span></div></div>
+        <div class="res-year-box"><div class="res-year-box-title">2003 – 2007</div><div class="res-year-items"><span class="res-year-item">2003</span><span class="res-year-item">2004</span><span class="res-year-item">2005</span><span class="res-year-item">2006</span><span class="res-year-item">2007</span></div></div>
+        <div class="res-year-box"><div class="res-year-box-title">2008 – 2012</div><div class="res-year-items"><span class="res-year-item">2008</span><span class="res-year-item">2009</span><span class="res-year-item">2010</span><span class="res-year-item">2011</span><span class="res-year-item">2012</span></div></div>
+        <div class="res-year-box"><div class="res-year-box-title">2013 – 2014</div><div class="res-year-items"><span class="res-year-item">2013</span><span class="res-year-item">2014</span><span class="res-year-item">Case Digest</span></div></div>
+      </div>
+      <div class="res-group" style="margin-top:20px">
+        <div class="res-group-title">Other Law Reports</div>
+        <div class="res-enact-grid">
+          <div class="res-enact-card"><div class="res-enact-icon">📚</div><div class="res-enact-name">Ceylon Law Reports</div><div class="res-enact-sub">Historical reports</div></div>
+          <div class="res-enact-card"><div class="res-enact-icon">📰</div><div class="res-enact-name">Ceylon Law Recorder</div><div class="res-enact-sub">Historical reports</div></div>
+          <div class="res-enact-card"><div class="res-enact-icon">📑</div><div class="res-enact-name">Ceylon Law Weekly</div><div class="res-enact-sub">Historical reports</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL: New Law Reports -->
+    <div class="res-panel" id="res-nlr">
+      <div class="res-year-groups">
+        <div class="res-year-box"><div class="res-year-box-title">Vol 1 – 10</div><div class="res-year-items"><span class="res-year-item">Vol 1</span><span class="res-year-item">Vol 2</span><span class="res-year-item">Vol 3</span><span class="res-year-item">Vol 4</span><span class="res-year-item">Vol 5</span><span class="res-year-item">Vol 6</span><span class="res-year-item">Vol 7</span><span class="res-year-item">Vol 8</span><span class="res-year-item">Vol 9</span><span class="res-year-item">Vol 10</span></div></div>
+        <div class="res-year-box"><div class="res-year-box-title">Vol 11 – 20</div><div class="res-year-items"><span class="res-year-item">Vol 11</span><span class="res-year-item">Vol 12</span><span class="res-year-item">Vol 13</span><span class="res-year-item">Vol 14</span><span class="res-year-item">Vol 15</span><span class="res-year-item">Vol 16</span><span class="res-year-item">Vol 17</span><span class="res-year-item">Vol 18</span><span class="res-year-item">Vol 19</span><span class="res-year-item">Vol 20</span></div></div>
+        <div class="res-year-box"><div class="res-year-box-title">Vol 21 – 30</div><div class="res-year-items"><span class="res-year-item">Vol 21</span><span class="res-year-item">Vol 22</span><span class="res-year-item">Vol 23</span><span class="res-year-item">Vol 24</span><span class="res-year-item">Vol 25</span><span class="res-year-item">Vol 26</span><span class="res-year-item">Vol 27</span><span class="res-year-item">Vol 28</span><span class="res-year-item">Vol 29</span><span class="res-year-item">Vol 30</span></div></div>
+        <div class="res-year-box"><div class="res-year-box-title">Vol 31 – 40</div><div class="res-year-items"><span class="res-year-item">Vol 31</span><span class="res-year-item">Vol 32</span><span class="res-year-item">Vol 33</span><span class="res-year-item">Vol 34</span><span class="res-year-item">Vol 35</span><span class="res-year-item">Vol 36</span><span class="res-year-item">Vol 37</span><span class="res-year-item">Vol 38</span><span class="res-year-item">Vol 39</span><span class="res-year-item">Vol 40</span></div></div>
+        <div class="res-year-box"><div class="res-year-box-title">Vol 41 – 50</div><div class="res-year-items"><span class="res-year-item">Vol 41</span><span class="res-year-item">Vol 42</span><span class="res-year-item">Vol 43</span><span class="res-year-item">Vol 44</span><span class="res-year-item">Vol 45</span><span class="res-year-item">Vol 46</span><span class="res-year-item">Vol 47</span><span class="res-year-item">Vol 48</span><span class="res-year-item">Vol 49</span><span class="res-year-item">Vol 50</span></div></div>
+        <div class="res-year-box"><div class="res-year-box-title">Vol 51 – 60</div><div class="res-year-items"><span class="res-year-item">Vol 51</span><span class="res-year-item">Vol 52</span><span class="res-year-item">Vol 53</span><span class="res-year-item">Vol 54</span><span class="res-year-item">Vol 55</span><span class="res-year-item">Vol 56</span><span class="res-year-item">Vol 57</span><span class="res-year-item">Vol 58</span><span class="res-year-item">Vol 59</span><span class="res-year-item">Vol 60</span></div></div>
+        <div class="res-year-box"><div class="res-year-box-title">Vol 61 – 70</div><div class="res-year-items"><span class="res-year-item">Vol 61</span><span class="res-year-item">Vol 62</span><span class="res-year-item">Vol 63</span><span class="res-year-item">Vol 64</span><span class="res-year-item">Vol 65</span><span class="res-year-item">Vol 66</span><span class="res-year-item">Vol 67</span><span class="res-year-item">Vol 68</span><span class="res-year-item">Vol 69</span><span class="res-year-item">Vol 70</span></div></div>
+        <div class="res-year-box"><div class="res-year-box-title">Vol 71 – 80</div><div class="res-year-items"><span class="res-year-item">Vol 71</span><span class="res-year-item">Vol 72</span><span class="res-year-item">Vol 73</span><span class="res-year-item">Vol 74</span><span class="res-year-item">Vol 75</span><span class="res-year-item">Vol 76</span><span class="res-year-item">Vol 77</span><span class="res-year-item">Vol 78</span><span class="res-year-item">Vol 79/1</span><span class="res-year-item">Vol 79/2</span><span class="res-year-item">Vol 80</span></div></div>
+      </div>
+    </div>
+
+    <!-- PANEL: Legislation -->
+    <div class="res-panel" id="res-legislation">
+      <div class="res-group">
+        <div class="res-group-title">Consolidated Legislations</div>
+        <div class="res-enact-grid">
+          <div class="res-enact-card"><div class="res-enact-icon">📜</div><div class="res-enact-name">Constitution of Sri Lanka</div><div class="res-enact-sub">Current &amp; historical</div></div>
+          <div class="res-enact-card"><div class="res-enact-icon">📜</div><div class="res-enact-name">Constitution 1978</div><div class="res-enact-sub">Second Republican Constitution</div></div>
+          <div class="res-enact-card"><div class="res-enact-icon">📜</div><div class="res-enact-name">Constitution 1972</div><div class="res-enact-sub">First Republican Constitution</div></div>
+          <div class="res-enact-card"><div class="res-enact-icon">🏛️</div><div class="res-enact-name">Donoughmore Commission Report</div><div class="res-enact-sub">Historical report</div></div>
+          <div class="res-enact-card"><div class="res-enact-icon">🏛️</div><div class="res-enact-name">Soulbury Commission Report</div><div class="res-enact-sub">Historical report</div></div>
+        </div>
+      </div>
+      <div class="res-group">
+        <div class="res-group-title">Core Legislations</div>
+        <div class="res-enact-grid">
+          <div class="res-enact-card"><div class="res-enact-icon">⚖️</div><div class="res-enact-name">Civil Procedure Code</div><div class="res-enact-sub">Civil litigation procedure</div></div>
+          <div class="res-enact-card"><div class="res-enact-icon">🚔</div><div class="res-enact-name">Criminal Procedure Code</div><div class="res-enact-sub">Criminal litigation procedure</div></div>
+          <div class="res-enact-card"><div class="res-enact-icon">📕</div><div class="res-enact-name">Penal Code</div><div class="res-enact-sub">Criminal offences</div></div>
+          <div class="res-enact-card"><div class="res-enact-icon">🔍</div><div class="res-enact-name">Evidence Ordinance</div><div class="res-enact-sub">Rules of evidence</div></div>
+          <div class="res-enact-card"><div class="res-enact-icon">🏛️</div><div class="res-enact-name">Judicature Acts</div><div class="res-enact-sub">Court structure &amp; jurisdiction</div></div>
+        </div>
+      </div>
+      <div class="res-group">
+        <div class="res-group-title">Subsidiary Legislations</div>
+        <div class="res-enact-grid">
+          <div class="res-enact-card"><div class="res-enact-icon">📰</div><div class="res-enact-name">Gazettes</div><div class="res-enact-sub">Official government notices</div></div>
+          <div class="res-enact-card"><div class="res-enact-icon">📰</div><div class="res-enact-name">Extraordinary Gazettes</div><div class="res-enact-sub">Special government notices</div></div>
+          <div class="res-enact-card"><div class="res-enact-icon">📋</div><div class="res-enact-name">Standing Orders</div><div class="res-enact-sub">Parliamentary standing orders</div></div>
+          <div class="res-enact-card"><div class="res-enact-icon">🏙️</div><div class="res-enact-name">Provincial Council &amp; Local Authority Statutes</div><div class="res-enact-sub">Regional legislation</div></div>
+        </div>
+      </div>
+      <div class="res-group">
+        <div class="res-group-title">Treaties &amp; Conventions</div>
+        <div class="res-enact-grid">
+          <div class="res-enact-card"><div class="res-enact-icon">🌐</div><div class="res-enact-name">International Conventions</div><div class="res-enact-sub">UN &amp; multilateral treaties</div></div>
+          <div class="res-enact-card"><div class="res-enact-icon">🤝</div><div class="res-enact-name">International Agreements</div><div class="res-enact-sub">Bilateral agreements</div></div>
+          <div class="res-enact-card"><div class="res-enact-icon">🌏</div><div class="res-enact-name">Regional Agreements</div><div class="res-enact-sub">SAARC &amp; regional treaties</div></div>
+          <div class="res-enact-card"><div class="res-enact-icon">✈️</div><div class="res-enact-name">Extradition Treaties</div><div class="res-enact-sub">Extradition agreements</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL: Court Judgements -->
+    <div class="res-panel" id="res-courts">
+      <div class="res-group">
+        <div class="res-group-title">Supreme Court Cases</div>
+        <div class="res-enact-grid" style="margin-bottom:14px">
+          <div class="res-enact-card"><div class="res-enact-icon">⚖️</div><div class="res-enact-name">1878 – 2011</div><div class="res-enact-sub">Historical consolidated volume</div></div>
+        </div>
+        <div class="res-year-groups">
+          <div class="res-year-box"><div class="res-year-box-title">2009 – 2016</div><div class="res-year-items"><span class="res-year-item">2009</span><span class="res-year-item">2010</span><span class="res-year-item">2011</span><span class="res-year-item">2012</span><span class="res-year-item">2013</span><span class="res-year-item">2014</span><span class="res-year-item">2015</span><span class="res-year-item">2016</span></div></div>
+          <div class="res-year-box"><div class="res-year-box-title">2017 – 2025</div><div class="res-year-items"><span class="res-year-item">2017</span><span class="res-year-item">2018</span><span class="res-year-item">2019</span><span class="res-year-item">2020</span><span class="res-year-item">2021</span><span class="res-year-item">2022</span><span class="res-year-item">2023</span><span class="res-year-item">2024</span><span class="res-year-item">2025</span></div></div>
+        </div>
+      </div>
+      <div class="res-group">
+        <div class="res-group-title">Appeal Court Cases</div>
+        <div class="res-enact-grid">
+          <div class="res-enact-card"><div class="res-enact-icon">🏛️</div><div class="res-enact-name">1809 – 2011</div><div class="res-enact-sub">Historical consolidated volume</div></div>
+          <div class="res-enact-card"><div class="res-enact-icon">📂</div><div class="res-enact-name">2009 – 2024</div><div class="res-enact-sub">Recent appeal court cases</div></div>
+        </div>
+      </div>
+      <div class="res-group">
+        <div class="res-group-title">High Court Cases</div>
+        <div class="res-enact-grid">
+          <div class="res-enact-card"><div class="res-enact-icon">🏛️</div><div class="res-enact-name">1874 – 1980</div><div class="res-enact-sub">Historical High Court volume</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL: Other Resources -->
+    <div class="res-panel" id="res-other">
+      <div class="res-enact-grid">
+        <div class="res-enact-card"><div class="res-enact-icon">📖</div><div class="res-enact-name">Acts &amp; Ordinances</div><div class="res-enact-sub">eLaw Library — full catalogue</div></div>
+        <div class="res-enact-card"><div class="res-enact-icon">📋</div><div class="res-enact-name">Legislative Enactments</div><div class="res-enact-sub">eLaw Library — full catalogue</div></div>
+        <div class="res-enact-card"><div class="res-enact-icon">⚖️</div><div class="res-enact-name">Sri Lanka Law Reports</div><div class="res-enact-sub">eLaw Library — full catalogue</div></div>
+        <div class="res-enact-card"><div class="res-enact-icon">📚</div><div class="res-enact-name">New Law Reports</div><div class="res-enact-sub">eLaw Library — full catalogue</div></div>
+        <div class="res-enact-card"><div class="res-enact-icon">🔬</div><div class="res-enact-name">Legal Research Services</div><div class="res-enact-sub">AI-based professional research via LankaLAW</div></div>
+        <div class="res-enact-card"><div class="res-enact-icon">👨‍⚖️</div><div class="res-enact-name">Lawyer Directory</div><div class="res-enact-sub">Retain a lawyer for personal or business advice</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ─── FOOTER ─── -->
 <footer>
   <div class="foot-top">
@@ -1145,7 +1409,7 @@ footer{background:var(--bg);padding:56px 60px 36px;border-top:1px solid var(--bo
     </div>
     <div>
       <div class="foot-col-title">Services</div>
-      <ul class="foot-links"><li><a href="#checker">Situation Checker</a></li><li><a href="#categories">Law Categories</a></li><li><a href="#lawyers">Find a Lawyer</a></li><li><a href="#guides">Legal Guides</a></li></ul>
+      <ul class="foot-links"><li><a href="#checker">Situation Checker</a></li><li><a href="#categories">Law Categories</a></li><li><a href="#lawyers">Find a Lawyer</a></li><li><a href="#guides">Legal Guides</a></li><li><a href="#resources">Legal Library</a></li></ul>
     </div>
     <div>
       <div class="foot-col-title">Law Areas</div>
@@ -1361,6 +1625,14 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeGuide();});
 /* ── SCROLL ANIMATIONS ── */
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.08});
 document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+/* ── RESOURCES TABS ── */
+function showResTab(id, btn) {
+  document.querySelectorAll('.res-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.res-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('res-'+id).classList.add('active');
+  btn.classList.add('active');
+}
 </script>
 </body>
 </html>
